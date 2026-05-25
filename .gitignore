@@ -1,0 +1,24 @@
+# Kubeconfigs and credentials
+**/kubeconfig
+**/*.kubeconfig
+**/auth/
+**/pull-secret*.json
+**/credentials
+**/.aws/
+
+# Install artifacts (large, regeneratable)
+**/install-config.yaml
+**/.openshift_install*
+**/terraform*
+
+# OS / editor cruft
+.DS_Store
+*.swp
+*.swo
+*~
+.vscode/
+
+# Local notes you don't want public
+DRAFT-*.md
+private/
+
