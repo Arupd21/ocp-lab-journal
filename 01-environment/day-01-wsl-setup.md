@@ -61,3 +61,15 @@ Kustomize transform test confirmed namePrefix, replica, and image-tag overlays a
 
 Day 2 — Install CodeReady Containers (CRC), log into single-node OpenShift, explore the console and cluster.
 
+
+## Bonus work (extended session)
+
+Completed ahead of schedule:
+
+- **Red Hat Developer subscription** registered (username: `arupd21`), profile completed with Corporate / Wipro Technologies affiliation
+- **CRC 2.61.0** downloaded, installed to `/usr/local/bin/crc` (bundled OpenShift 4.21.14, MicroShift 4.21.7)
+- **Pull secret** downloaded from console.redhat.com, secured at `~/lab/configs/pull-secret.json` with 600 permissions, validated for the four required registries (cloud.openshift.com, quay.io, registry.connect.redhat.com, registry.redhat.io)
+
+Client (oc 4.21.15) and cluster image (4.21.14) are within one patch version — no client/server skew expected.
+
+Day 2 will start directly at `crc setup`.
