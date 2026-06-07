@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: httpbin-content
+  labels:
+    app: httpbin
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>httpbin demo on OpenShift</title>
+      <style>
+        body { font-family: monospace; background: #1a1a1a; color: #e0e0e0; padding: 2em; }
+        h1 { color: #cc0000; }
+        .info { background: #2a2a2a; padding: 1em; border-left: 3px solid #cc0000; margin: 1em 0; }
+        code { background: #333; padding: 2px 6px; border-radius: 3px; }
+      </style>
+    </head>
+    <body>
+      <h1>OpenShift Lab — httpbin workload</h1>
+      <div class="info">
+        <p>Served from: <code>UBI9-httpd-24</code></p>
+        <p>Deployed via raw YAML manifests (no oc new-app)</p>
+        <p>Content mounted from ConfigMap <code>httpbin-content</code> at <code>/var/www/html/index.html</code></p>
+        <p>Engineer: Arup Das | Lab journal: github.com/Arupd21/ocp-lab-journal</p>
+      </div>
+      <p>If you can read this, the full Route → Service → Endpoint → Pod → ConfigMap-volume chain is working.</p>
+    </body>
+    </html>
