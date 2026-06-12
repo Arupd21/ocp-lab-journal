@@ -55,6 +55,7 @@ spec:
                     echo 'Verifying deployment...'
                     sh '''
                     helm status httpbin \
+                      --namespace: default \
                       --kube-apiserver https://kubernetes.default.svc \
                       --kube-token $(cat /var/run/secrets/kubernetes.io/serviceaccount/token) \
                       --kube-ca-file /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
