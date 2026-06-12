@@ -1,0 +1,9 @@
+apiVersion: v2
+name: httpbin
+description: HTTP request/response testing service for OpenShift/K8s labs
+type: application
+version: 0.1.0
+appVersion: "latest"
+maintainers:
+  - name: Arup Das
+    email: arupd.jsr@gmail.com

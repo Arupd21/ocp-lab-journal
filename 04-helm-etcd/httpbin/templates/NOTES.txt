@@ -1,0 +1,8 @@
+httpbin has been deployed successfully!
+
+To access the service:
+  kubectl get svc {{ include "httpbin.fullname" . }}
+
+To test the endpoint:
+  kubectl port-forward svc/{{ include "httpbin.fullname" . }} 8080:80
+  curl http://localhost:8080/get
