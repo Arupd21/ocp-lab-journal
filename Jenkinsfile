@@ -1,10 +1,27 @@
 pipeline {
-    agent any
-    
-    environment {
-        KUBECONFIG = '/var/jenkins_home/.kube/config'
+    agent {
+        kubernetes {
+            yaml '''
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: helm
+    image: alpine/helm:3.16.4
+    command:
+    - sleep
+    args:
+    - infinity
+  - name: kubectl
+    image: bitnami/kubectl:latest
+    command:
+    - sleep
+    args:
+    - infinity
+'''
+        }
     }
-    
+
     stages {
         stage('Checkout') {
             steps {
@@ -12,33 +29,42 @@ pipeline {
                 checkout scm
             }
         }
-        
+
         stage('Helm Lint') {
             steps {
-                echo 'Running helm lint...'
-                sh 'helm lint ./04-helm-etcd/httpbin || echo "helm lint complete"'
+                container('helm') {
+                    echo 'Running helm lint...'
+                    sh 'helm lint ./04-helm-etcd/httpbin'
+                }
             }
         }
-        
+
         stage('Deploy httpbin') {
             steps {
-                echo 'Deploying httpbin...'
-                sh '''
-                helm upgrade --install httpbin ./04-helm-etcd/httpbin \
-                  --namespace default \
-                  --set image.tag=latest
-                '''
+                container('helm') {
+                    echo 'Deploying httpbin...'
+                    sh '''
+                    helm upgrade --install httpbin ./04-helm-etcd/httpbin \
+                      --namespace default \
+                      --set image.tag=latest \
+                      --kube-apiserver https://kubernetes.default.svc \
+                      --kube-token $(cat /var/run/secrets/kubernetes.io/serviceaccount/token) \
+                      --kube-ca-file /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+                    '''
+                }
             }
         }
-        
+
         stage('Verify') {
             steps {
-                echo 'Verifying deployment...'
-                sh 'kubectl get pods | grep httpbin'
+                container('kubectl') {
+                    echo 'Verifying deployment...'
+                    sh 'kubectl get pods | grep httpbin'
+                }
             }
         }
     }
-    
+
     post {
         success {
             echo 'Pipeline completed successfully!'
