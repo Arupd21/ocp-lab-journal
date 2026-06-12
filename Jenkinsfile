@@ -57,13 +57,12 @@ spec:
 
         stage('Verify') {
             steps {
-                container('kubectl') {
+                container('helm') {
                     echo 'Verifying deployment...'
-                    sh 'kubectl get pods | grep httpbin'
+                    sh 'helm status httpbin --kube-apiserver https://kubernetes.default.svc --kube-token $(cat /var/run/secrets/kubernetes.io/serviceaccount/token) --kube-ca-file /var/run/secrets/kubernetes.io/serviceaccount/ca.crt'
                 }
             }
         }
-    }
 
     post {
         success {
