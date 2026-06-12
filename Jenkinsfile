@@ -12,12 +12,6 @@ spec:
     - sleep
     args:
     - infinity
-  - name: kubectl
-    image: bitnami/kubectl:latest
-    command:
-    - sleep
-    args:
-    - infinity
 '''
         }
     }
@@ -59,10 +53,16 @@ spec:
             steps {
                 container('helm') {
                     echo 'Verifying deployment...'
-                    sh 'helm status httpbin --kube-apiserver https://kubernetes.default.svc --kube-token $(cat /var/run/secrets/kubernetes.io/serviceaccount/token) --kube-ca-file /var/run/secrets/kubernetes.io/serviceaccount/ca.crt'
+                    sh '''
+                    helm status httpbin \
+                      --kube-apiserver https://kubernetes.default.svc \
+                      --kube-token $(cat /var/run/secrets/kubernetes.io/serviceaccount/token) \
+                      --kube-ca-file /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+                    '''
                 }
             }
         }
+    }
 
     post {
         success {
