@@ -22,3 +22,5 @@
 DRAFT-*.md
 private/
 
+must-gather.local.*
+must-gather/
