@@ -1,4 +1,4 @@
-FROM kennethreitz/httpbin:latest
+FROM docker.io/kennethreitz/httpbin:latest
 
 LABEL maintainer="arupd.jsr@gmail.com"
 LABEL version="1.0"
