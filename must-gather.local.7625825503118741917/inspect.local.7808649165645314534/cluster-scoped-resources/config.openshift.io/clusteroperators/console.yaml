@@ -1,0 +1,182 @@
+---
+apiVersion: config.openshift.io/v1
+kind: ClusterOperator
+metadata:
+  annotations:
+    capability.openshift.io/name: Console
+    include.release.openshift.io/hypershift: "true"
+    include.release.openshift.io/ibm-cloud-managed: "true"
+    include.release.openshift.io/self-managed-high-availability: "true"
+    include.release.openshift.io/single-node-developer: "true"
+  creationTimestamp: "2024-12-03T19:19:17Z"
+  generation: 1
+  managedFields:
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:capability.openshift.io/name: {}
+          f:include.release.openshift.io/hypershift: {}
+          f:include.release.openshift.io/ibm-cloud-managed: {}
+          f:include.release.openshift.io/self-managed-high-availability: {}
+          f:include.release.openshift.io/single-node-developer: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"57211e58-241c-464e-8d45-e1c29c5df9c6"}: {}
+      f:spec: {}
+    manager: cluster-version-operator
+    operation: Update
+    time: "2024-12-03T19:19:17Z"
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        .: {}
+        f:extension: {}
+    manager: cluster-version-operator
+    operation: Update
+    subresource: status
+    time: "2024-12-03T19:19:17Z"
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions:
+          .: {}
+          k:{"type":"Degraded"}:
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+          k:{"type":"Progressing"}:
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+          k:{"type":"Upgradeable"}:
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+        f:relatedObjects: {}
+        f:versions: {}
+    manager: console
+    operation: Update
+    subresource: status
+    time: "2026-06-12T19:27:33Z"
+  name: console
+  ownerReferences:
+  - apiVersion: config.openshift.io/v1
+    controller: true
+    kind: ClusterVersion
+    name: version
+    uid: 57211e58-241c-464e-8d45-e1c29c5df9c6
+  resourceVersion: "7987398261"
+  uid: 9c3176bc-472b-47b6-82b8-3cad50f29b41
+spec: {}
+status:
+  conditions:
+  - lastTransitionTime: "2026-04-14T08:52:14Z"
+    message: All is well
+    reason: AsExpected
+    status: "False"
+    type: Degraded
+  - lastTransitionTime: "2026-06-12T19:27:33Z"
+    message: All is well
+    reason: AsExpected
+    status: "False"
+    type: Progressing
+  - lastTransitionTime: "2024-12-03T19:53:12Z"
+    message: All is well
+    reason: AsExpected
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2026-06-12T09:47:11Z"
+    message: All is well
+    reason: AsExpected
+    status: "True"
+    type: Upgradeable
+  - lastTransitionTime: "2024-12-03T19:29:43Z"
+    reason: NoData
+    status: Unknown
+    type: EvaluationConditionsDetected
+  extension: null
+  relatedObjects:
+  - group: console.openshift.io
+    name: kubevirt-plugin
+    resource: consoleplugins
+  - group: ""
+    name: openshift-cnv
+    resource: namespaces
+  - group: console.openshift.io
+    name: lightspeed-console-plugin
+    resource: consoleplugins
+  - group: ""
+    name: openshift-lightspeed
+    resource: namespaces
+  - group: console.openshift.io
+    name: monitoring-plugin
+    resource: consoleplugins
+  - group: ""
+    name: openshift-monitoring
+    resource: namespaces
+  - group: console.openshift.io
+    name: networking-console-plugin
+    resource: consoleplugins
+  - group: ""
+    name: openshift-network-console
+    resource: namespaces
+  - group: console.openshift.io
+    name: pipelines-console-plugin
+    resource: consoleplugins
+  - group: ""
+    name: openshift-pipelines
+    resource: namespaces
+  - group: oauth.openshift.io
+    name: console
+    resource: oauthclients
+  - group: operator.openshift.io
+    name: cluster
+    resource: consoles
+  - group: config.openshift.io
+    name: cluster
+    resource: consoles
+  - group: config.openshift.io
+    name: cluster
+    resource: infrastructures
+  - group: config.openshift.io
+    name: cluster
+    resource: proxies
+  - group: config.openshift.io
+    name: cluster
+    resource: oauths
+  - group: ""
+    name: openshift-console-operator
+    resource: namespaces
+  - group: ""
+    name: openshift-console
+    resource: namespaces
+  - group: ""
+    name: console-public
+    namespace: openshift-config-managed
+    resource: configmaps
+  - group: rbac.authorization.k8s.io
+    name: console-operator
+    resource: clusterroles
+  - group: rbac.authorization.k8s.io
+    name: console
+    resource: clusterroles
+  - group: rbac.authorization.k8s.io
+    name: helm-chartrepos-viewer
+    resource: clusterroles
+  - group: rbac.authorization.k8s.io
+    name: project-helm-chartrepository-editor
+    resource: clusterroles
+  - group: rbac.authorization.k8s.io
+    name: console-extensions-reader
+    resource: clusterroles
+  versions:
+  - name: operator
+    version: 4.21.18

@@ -1,0 +1,125 @@
+---
+apiVersion: config.openshift.io/v1
+kind: ClusterOperator
+metadata:
+  annotations:
+    capability.openshift.io/name: baremetal
+    exclude.release.openshift.io/internal-openshift-hosted: "true"
+    include.release.openshift.io/ibm-cloud-managed: "true"
+    include.release.openshift.io/self-managed-high-availability: "true"
+    include.release.openshift.io/single-node-developer: "true"
+  creationTimestamp: "2024-12-03T19:19:17Z"
+  generation: 1
+  managedFields:
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        .: {}
+        f:extension: {}
+    manager: cluster-version-operator
+    operation: Update
+    subresource: status
+    time: "2024-12-03T19:19:18Z"
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:capability.openshift.io/name: {}
+          f:exclude.release.openshift.io/internal-openshift-hosted: {}
+          f:include.release.openshift.io/ibm-cloud-managed: {}
+          f:include.release.openshift.io/self-managed-high-availability: {}
+          f:include.release.openshift.io/single-node-developer: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"57211e58-241c-464e-8d45-e1c29c5df9c6"}: {}
+      f:spec: {}
+    manager: cluster-version-operator
+    operation: Update
+    time: "2026-03-13T11:40:59Z"
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions: {}
+        f:relatedObjects: {}
+        f:versions: {}
+    manager: cluster-baremetal-operator
+    operation: Update
+    subresource: status
+    time: "2026-06-09T05:30:22Z"
+  name: baremetal
+  ownerReferences:
+  - apiVersion: config.openshift.io/v1
+    controller: true
+    kind: ClusterVersion
+    name: version
+    uid: 57211e58-241c-464e-8d45-e1c29c5df9c6
+  resourceVersion: "7967137321"
+  uid: cce5621c-351b-4a0f-9aea-7e74bf96bef4
+spec: {}
+status:
+  conditions:
+  - lastTransitionTime: "2024-12-03T19:24:28Z"
+    reason: WaitingForProvisioningCR
+    status: "False"
+    type: Progressing
+  - lastTransitionTime: "2024-12-03T19:24:28Z"
+    status: "False"
+    type: Degraded
+  - lastTransitionTime: "2024-12-03T19:24:28Z"
+    message: Waiting for Provisioning CR on BareMetal Platform
+    reason: WaitingForProvisioningCR
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2024-12-03T19:24:28Z"
+    status: "True"
+    type: Upgradeable
+  - lastTransitionTime: "2024-12-03T19:24:28Z"
+    status: "False"
+    type: Disabled
+  extension: null
+  relatedObjects:
+  - group: ""
+    name: openshift-machine-api
+    resource: namespaces
+  - group: metal3.io
+    name: ""
+    namespace: openshift-machine-api
+    resource: baremetalhosts
+  - group: metal3.io
+    name: ""
+    resource: provisioning
+  - group: metal3.io
+    name: ""
+    namespace: openshift-machine-api
+    resource: hostfirmwaresettings
+  - group: metal3.io
+    name: ""
+    namespace: openshift-machine-api
+    resource: firmwareschemas
+  - group: metal3.io
+    name: ""
+    namespace: openshift-machine-api
+    resource: preprovisioningimages
+  - group: metal3.io
+    name: ""
+    namespace: openshift-machine-api
+    resource: bmceventsubscriptions
+  - group: metal3.io
+    name: ""
+    namespace: openshift-machine-api
+    resource: hostfirmwarecomponents
+  - group: metal3.io
+    name: ""
+    namespace: openshift-machine-api
+    resource: dataimages
+  - group: metal3.io
+    name: ""
+    namespace: openshift-machine-api
+    resource: hostupdatepolicies
+  versions:
+  - name: operator
+    version: 4.21.18

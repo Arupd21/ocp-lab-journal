@@ -1,0 +1,102 @@
+---
+apiVersion: config.openshift.io/v1
+kind: ClusterOperator
+metadata:
+  annotations:
+    capability.openshift.io/name: MachineAPI
+    exclude.release.openshift.io/internal-openshift-hosted: "true"
+    include.release.openshift.io/self-managed-high-availability: "true"
+    include.release.openshift.io/single-node-developer: "true"
+  creationTimestamp: "2024-12-03T19:19:17Z"
+  generation: 1
+  managedFields:
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:capability.openshift.io/name: {}
+          f:exclude.release.openshift.io/internal-openshift-hosted: {}
+          f:include.release.openshift.io/self-managed-high-availability: {}
+          f:include.release.openshift.io/single-node-developer: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"57211e58-241c-464e-8d45-e1c29c5df9c6"}: {}
+      f:spec: {}
+    manager: cluster-version-operator
+    operation: Update
+    time: "2024-12-03T19:19:17Z"
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        .: {}
+        f:extension: {}
+    manager: cluster-version-operator
+    operation: Update
+    subresource: status
+    time: "2024-12-03T19:19:17Z"
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions:
+          .: {}
+          k:{"type":"Available"}:
+            f:message: {}
+            f:reason: {}
+          k:{"type":"Degraded"}:
+            f:lastTransitionTime: {}
+            f:status: {}
+          k:{"type":"Progressing"}:
+            f:lastTransitionTime: {}
+            f:status: {}
+        f:relatedObjects: {}
+        f:versions: {}
+    manager: cluster-autoscaler-operator
+    operation: Update
+    subresource: status
+    time: "2026-06-09T06:13:06Z"
+  name: cluster-autoscaler
+  ownerReferences:
+  - apiVersion: config.openshift.io/v1
+    controller: true
+    kind: ClusterVersion
+    name: version
+    uid: 57211e58-241c-464e-8d45-e1c29c5df9c6
+  resourceVersion: "7967355799"
+  uid: c05b8327-89d9-4537-b13b-68194cfffd06
+spec: {}
+status:
+  conditions:
+  - lastTransitionTime: "2024-12-03T19:24:28Z"
+    message: at version 4.21.18
+    reason: AsExpected
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2026-06-09T06:13:06Z"
+    status: "False"
+    type: Progressing
+  - lastTransitionTime: "2026-04-14T08:51:46Z"
+    status: "False"
+    type: Degraded
+  - lastTransitionTime: "2024-12-03T19:24:28Z"
+    status: "True"
+    type: Upgradeable
+  extension: null
+  relatedObjects:
+  - group: autoscaling.openshift.io
+    name: ""
+    namespace: openshift-machine-api
+    resource: machineautoscalers
+  - group: autoscaling.openshift.io
+    name: ""
+    namespace: openshift-machine-api
+    resource: clusterautoscalers
+  - group: ""
+    name: openshift-machine-api
+    resource: namespaces
+  versions:
+  - name: operator
+    version: 4.21.18

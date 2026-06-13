@@ -1,0 +1,10 @@
+[must-gather      ] OUT 2026-06-12T21:26:15.438790414Z Using must-gather plug-in image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:c66c48358ac6fc0ef0bc86b8435eaa0d6ba3aa4db533fe5fed71e79bac5f73f5
+When opening a support case, bugzilla, or issue please include the following summary data along with any other requested information:
+ClusterID: fb17571b-0735-4bb9-98c0-756b641f27f6
+ClientVersion: 4.21.15
+ClusterVersion: Stable at "4.21.18"
+ClusterOperators:
+	clusteroperator/operator-lifecycle-manager is not upgradeable because ClusterServiceVersions blocking minor version upgrades to 4.22.0 or higher:
+- maximum supported OCP version for openshift-logging/cluster-logging.v6.4.5 is 4.21
+
+

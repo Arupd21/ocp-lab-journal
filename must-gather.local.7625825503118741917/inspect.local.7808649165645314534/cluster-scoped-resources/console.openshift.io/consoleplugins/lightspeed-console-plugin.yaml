@@ -1,0 +1,74 @@
+---
+apiVersion: console.openshift.io/v1
+kind: ConsolePlugin
+metadata:
+  creationTimestamp: "2025-07-17T14:12:59Z"
+  generation: 1
+  labels:
+    app.kubernetes.io/component: console-plugin
+    app.kubernetes.io/managed-by: lightspeed-operator
+    app.kubernetes.io/name: lightspeed-console-plugin
+    app.kubernetes.io/part-of: openshift-lightspeed
+  managedFields:
+  - apiVersion: console.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:app.kubernetes.io/component: {}
+          f:app.kubernetes.io/managed-by: {}
+          f:app.kubernetes.io/name: {}
+          f:app.kubernetes.io/part-of: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"3e6cce58-0231-4bef-b574-f9c967160e43"}: {}
+      f:spec:
+        .: {}
+        f:backend:
+          .: {}
+          f:service:
+            .: {}
+            f:basePath: {}
+            f:name: {}
+            f:namespace: {}
+            f:port: {}
+          f:type: {}
+        f:displayName: {}
+        f:i18n:
+          .: {}
+          f:loadType: {}
+        f:proxy: {}
+    manager: manager
+    operation: Update
+    time: "2025-07-17T14:12:59Z"
+  name: lightspeed-console-plugin
+  ownerReferences:
+  - apiVersion: ols.openshift.io/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: OLSConfig
+    name: cluster
+    uid: 3e6cce58-0231-4bef-b574-f9c967160e43
+  resourceVersion: "3283934021"
+  uid: ac2ee1f7-c005-462b-a9b0-ff988bdc4450
+spec:
+  backend:
+    service:
+      basePath: /
+      name: lightspeed-console-plugin
+      namespace: openshift-lightspeed
+      port: 9443
+    type: Service
+  displayName: Lightspeed Console Plugin
+  i18n:
+    loadType: Preload
+  proxy:
+  - alias: ols
+    authorization: UserToken
+    endpoint:
+      service:
+        name: lightspeed-app-server
+        namespace: openshift-lightspeed
+        port: 8443
+      type: Service

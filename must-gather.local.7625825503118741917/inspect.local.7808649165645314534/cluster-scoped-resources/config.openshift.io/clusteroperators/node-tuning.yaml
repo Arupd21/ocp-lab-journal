@@ -1,0 +1,123 @@
+---
+apiVersion: config.openshift.io/v1
+kind: ClusterOperator
+metadata:
+  annotations:
+    capability.openshift.io/name: NodeTuning
+    include.release.openshift.io/hypershift: "true"
+    include.release.openshift.io/ibm-cloud-managed: "true"
+    include.release.openshift.io/self-managed-high-availability: "true"
+    include.release.openshift.io/single-node-developer: "true"
+  creationTimestamp: "2024-12-03T19:19:17Z"
+  generation: 1
+  managedFields:
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:capability.openshift.io/name: {}
+          f:include.release.openshift.io/hypershift: {}
+          f:include.release.openshift.io/ibm-cloud-managed: {}
+          f:include.release.openshift.io/self-managed-high-availability: {}
+          f:include.release.openshift.io/single-node-developer: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"57211e58-241c-464e-8d45-e1c29c5df9c6"}: {}
+      f:spec: {}
+    manager: cluster-version-operator
+    operation: Update
+    time: "2024-12-03T19:19:17Z"
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        .: {}
+        f:extension: {}
+    manager: cluster-version-operator
+    operation: Update
+    subresource: status
+    time: "2024-12-03T19:19:17Z"
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions:
+          .: {}
+          k:{"type":"Available"}:
+            f:lastTransitionTime: {}
+            f:message: {}
+          k:{"type":"Progressing"}:
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+        f:relatedObjects: {}
+        f:versions: {}
+    manager: cluster-node-tuning-operator
+    operation: Update
+    subresource: status
+    time: "2026-06-12T21:11:03Z"
+  name: node-tuning
+  ownerReferences:
+  - apiVersion: config.openshift.io/v1
+    controller: true
+    kind: ClusterVersion
+    name: version
+    uid: 57211e58-241c-464e-8d45-e1c29c5df9c6
+  resourceVersion: "7987806069"
+  uid: 912c731c-1419-4443-bc74-64d8b4bd4665
+spec: {}
+status:
+  conditions:
+  - lastTransitionTime: "2026-06-12T21:11:03Z"
+    message: Cluster has deployed 24/24 "4.21.18" operands
+    reason: AsExpected
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2026-06-12T21:11:03Z"
+    message: Cluster version is "4.21.18"
+    reason: AsExpected
+    status: "False"
+    type: Progressing
+  - lastTransitionTime: "2024-12-03T19:24:28Z"
+    message: DaemonSet "tuned" available
+    reason: AsExpected
+    status: "False"
+    type: Degraded
+  extension: null
+  relatedObjects:
+  - group: ""
+    name: openshift-cluster-node-tuning-operator
+    resource: namespaces
+  - group: ""
+    name: cluster-node-tuning-operator
+    namespace: openshift-cluster-node-tuning-operator
+    resource: serviceaccounts
+  - group: rbac.authorization.k8s.io
+    name: cluster-node-tuning-operator
+    resource: clusterroles
+  - group: rbac.authorization.k8s.io
+    name: cluster-node-tuning-operator
+    resource: clusterrolebindings
+  - group: tuned.openshift.io
+    name: ""
+    namespace: openshift-cluster-node-tuning-operator
+    resource: profiles
+  - group: tuned.openshift.io
+    name: ""
+    namespace: openshift-cluster-node-tuning-operator
+    resource: tuneds
+  - group: apps
+    name: tuned
+    namespace: openshift-cluster-node-tuning-operator
+    resource: daemonsets
+  - group: performance.openshift.io
+    name: ""
+    resource: performanceprofiles
+  versions:
+  - name: operator
+    version: 4.21.18
+  - name: ocp-tuned
+    version: 4.21.18

@@ -1,0 +1,91 @@
+---
+apiVersion: config.openshift.io/v1
+kind: ClusterOperator
+metadata:
+  annotations:
+    exclude.release.openshift.io/internal-openshift-hosted: "true"
+    include.release.openshift.io/self-managed-high-availability: "true"
+    include.release.openshift.io/single-node-developer: "true"
+  creationTimestamp: "2024-12-03T19:19:17Z"
+  generation: 1
+  managedFields:
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:exclude.release.openshift.io/internal-openshift-hosted: {}
+          f:include.release.openshift.io/self-managed-high-availability: {}
+          f:include.release.openshift.io/single-node-developer: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"57211e58-241c-464e-8d45-e1c29c5df9c6"}: {}
+      f:spec: {}
+    manager: cluster-version-operator
+    operation: Update
+    time: "2024-12-03T19:19:17Z"
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        .: {}
+        f:extension: {}
+        f:relatedObjects: {}
+    manager: cluster-version-operator
+    operation: Update
+    subresource: status
+    time: "2024-12-03T19:19:18Z"
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions:
+          .: {}
+          k:{"type":"Available"}:
+            f:message: {}
+        f:versions: {}
+    manager: machine-approver
+    operation: Update
+    subresource: status
+    time: "2026-06-09T05:30:50Z"
+  name: machine-approver
+  ownerReferences:
+  - apiVersion: config.openshift.io/v1
+    controller: true
+    kind: ClusterVersion
+    name: version
+    uid: 57211e58-241c-464e-8d45-e1c29c5df9c6
+  resourceVersion: "7967139963"
+  uid: 58f34730-cd41-405f-8600-edf4699b1159
+spec: {}
+status:
+  conditions:
+  - lastTransitionTime: "2024-12-03T19:24:16Z"
+    message: Cluster Machine Approver is available at 4.21.18
+    reason: AsExpected
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2024-12-03T19:24:16Z"
+    reason: AsExpected
+    status: "False"
+    type: Degraded
+  - lastTransitionTime: "2024-12-03T19:24:16Z"
+    reason: AsExpected
+    status: "False"
+    type: Progressing
+  - lastTransitionTime: "2024-12-03T19:24:16Z"
+    reason: AsExpected
+    status: "True"
+    type: Upgradeable
+  extension: null
+  relatedObjects:
+  - group: ""
+    name: openshift-cluster-machine-approver
+    resource: namespaces
+  - group: certificates.k8s.io
+    name: ""
+    resource: certificatesigningrequests
+  versions:
+  - name: operator
+    version: 4.21.18

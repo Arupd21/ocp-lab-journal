@@ -1,0 +1,135 @@
+---
+apiVersion: config.openshift.io/v1
+kind: ClusterOperator
+metadata:
+  annotations:
+    exclude.release.openshift.io/internal-openshift-hosted: "true"
+    include.release.openshift.io/self-managed-high-availability: "true"
+    include.release.openshift.io/single-node-developer: "true"
+  creationTimestamp: "2024-12-03T19:19:17Z"
+  generation: 1
+  managedFields:
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:exclude.release.openshift.io/internal-openshift-hosted: {}
+          f:include.release.openshift.io/self-managed-high-availability: {}
+          f:include.release.openshift.io/single-node-developer: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"57211e58-241c-464e-8d45-e1c29c5df9c6"}: {}
+      f:spec: {}
+    manager: cluster-version-operator
+    operation: Update
+    time: "2024-12-03T19:19:17Z"
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        .: {}
+        f:extension: {}
+        f:relatedObjects: {}
+    manager: cluster-version-operator
+    operation: Update
+    subresource: status
+    time: "2024-12-03T19:19:18Z"
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions:
+          .: {}
+          k:{"type":"Available"}:
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+          k:{"type":"Degraded"}:
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+          k:{"type":"Progressing"}:
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+          k:{"type":"Upgradeable"}:
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+        f:versions: {}
+    manager: cluster-etcd-operator
+    operation: Update
+    subresource: status
+    time: "2026-06-09T06:21:47Z"
+  name: etcd
+  ownerReferences:
+  - apiVersion: config.openshift.io/v1
+    controller: true
+    kind: ClusterVersion
+    name: version
+    uid: 57211e58-241c-464e-8d45-e1c29c5df9c6
+  resourceVersion: "7967398824"
+  uid: 063aacbb-3a81-42e0-82d6-c29259c4113a
+spec: {}
+status:
+  conditions:
+  - lastTransitionTime: "2026-04-14T10:51:50Z"
+    message: |-
+      NodeControllerDegraded: All master nodes are ready
+      EtcdMembersDegraded: No unhealthy members found
+    reason: AsExpected
+    status: "False"
+    type: Degraded
+  - lastTransitionTime: "2026-06-09T05:14:51Z"
+    message: |-
+      EtcdMembersProgressing: No unstarted etcd members found
+      NodeInstallerProgressing: 3 nodes are at revision 54
+    reason: AsExpected
+    status: "False"
+    type: Progressing
+  - lastTransitionTime: "2026-04-14T06:24:30Z"
+    message: |-
+      EtcdMembersAvailable: 3 members are available
+      StaticPodsAvailable: 3 nodes are active; 3 nodes are at revision 54
+    reason: AsExpected
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2026-04-14T09:58:34Z"
+    message: All is well
+    reason: AsExpected
+    status: "True"
+    type: Upgradeable
+  - lastTransitionTime: "2024-12-03T19:23:56Z"
+    reason: NoData
+    status: Unknown
+    type: EvaluationConditionsDetected
+  extension: null
+  relatedObjects:
+  - group: operator.openshift.io
+    name: cluster
+    resource: etcds
+  - group: ""
+    name: openshift-config
+    resource: namespaces
+  - group: ""
+    name: openshift-config-managed
+    resource: namespaces
+  - group: ""
+    name: openshift-etcd-operator
+    resource: namespaces
+  - group: ""
+    name: openshift-etcd
+    resource: namespaces
+  versions:
+  - name: raw-internal
+    version: 4.21.18
+  - name: etcd
+    version: 4.21.18
+  - name: operator
+    version: 4.21.18

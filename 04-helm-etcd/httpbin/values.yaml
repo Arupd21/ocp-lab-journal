@@ -4,7 +4,7 @@ replicaCount: 1
 image: 
   repository: kennethreitz/httpbin
   pullPolicy: IfNotPresent
-  tag: "latest"
+  tag: "broken-v999"
 
 
 service:

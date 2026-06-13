@@ -1,0 +1,330 @@
+---
+apiVersion: config.openshift.io/v1
+kind: ClusterOperator
+metadata:
+  annotations:
+    capability.openshift.io/name: OperatorLifecycleManagerV1
+    include.release.openshift.io/self-managed-high-availability: "true"
+  creationTimestamp: "2025-03-18T10:47:08Z"
+  generation: 1
+  managedFields:
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:capability.openshift.io/name: {}
+          f:include.release.openshift.io/self-managed-high-availability: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"57211e58-241c-464e-8d45-e1c29c5df9c6"}: {}
+      f:spec: {}
+    manager: cluster-version-operator
+    operation: Update
+    time: "2025-03-18T10:47:08Z"
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        .: {}
+        f:extension: {}
+    manager: cluster-version-operator
+    operation: Update
+    subresource: status
+    time: "2025-03-18T10:47:08Z"
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions:
+          .: {}
+          k:{"type":"Available"}:
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+          k:{"type":"Degraded"}:
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+          k:{"type":"Progressing"}:
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+        f:relatedObjects: {}
+        f:versions: {}
+    manager: cluster-olm-operator
+    operation: Update
+    subresource: status
+    time: "2026-06-09T06:13:24Z"
+  name: olm
+  ownerReferences:
+  - apiVersion: config.openshift.io/v1
+    controller: true
+    kind: ClusterVersion
+    name: version
+    uid: 57211e58-241c-464e-8d45-e1c29c5df9c6
+  resourceVersion: "7967357077"
+  uid: de99e4c0-50e5-432f-ac9b-5ffc23176134
+spec: {}
+status:
+  conditions:
+  - lastTransitionTime: "2026-04-14T08:52:10Z"
+    message: All is well
+    reason: AsExpected
+    status: "False"
+    type: Degraded
+  - lastTransitionTime: "2026-06-09T05:47:01Z"
+    message: |-
+      OperatorcontrollerDeploymentOperatorControllerControllerManagerProgressing: Deployment is not progressing
+      CatalogdDeploymentCatalogdControllerManagerProgressing: Deployment is not progressing
+    reason: AsExpected
+    status: "False"
+    type: Progressing
+  - lastTransitionTime: "2026-06-09T06:13:24Z"
+    message: |-
+      OperatorcontrollerDeploymentOperatorControllerControllerManagerAvailable: Deployment is available
+      CatalogdDeploymentCatalogdControllerManagerAvailable: Deployment is available
+    reason: AsExpected
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2025-03-18T10:47:23Z"
+    message: All is well
+    reason: AsExpected
+    status: "True"
+    type: Upgradeable
+  - lastTransitionTime: "2025-03-18T10:47:23Z"
+    reason: NoData
+    status: Unknown
+    type: EvaluationConditionsDetected
+  extension: null
+  relatedObjects:
+  - group: ""
+    name: openshift-catalogd
+    resource: namespaces
+  - group: networking.k8s.io
+    name: catalogd-controller-manager
+    namespace: openshift-catalogd
+    resource: networkpolicies
+  - group: networking.k8s.io
+    name: catalogd-default-deny-all-traffic
+    namespace: openshift-catalogd
+    resource: networkpolicies
+  - group: ""
+    name: catalogd-controller-manager
+    namespace: openshift-catalogd
+    resource: serviceaccounts
+  - group: ""
+    name: catalogd-trusted-ca-bundle
+    namespace: openshift-catalogd
+    resource: configmaps
+  - group: apiextensions.k8s.io
+    name: clustercatalogs.olm.operatorframework.io
+    resource: customresourcedefinitions
+  - group: rbac.authorization.k8s.io
+    name: catalogd-manager-role
+    resource: clusterroles
+  - group: rbac.authorization.k8s.io
+    name: catalogd-metrics-reader
+    resource: clusterroles
+  - group: rbac.authorization.k8s.io
+    name: catalogd-proxy-role
+    resource: clusterroles
+  - group: rbac.authorization.k8s.io
+    name: catalogd-manager-rolebinding
+    resource: clusterrolebindings
+  - group: rbac.authorization.k8s.io
+    name: catalogd-proxy-rolebinding
+    resource: clusterrolebindings
+  - group: rbac.authorization.k8s.io
+    name: catalogd-manager-role
+    namespace: openshift-config
+    resource: roles
+  - group: rbac.authorization.k8s.io
+    name: catalogd-manager-role
+    namespace: openshift-catalogd
+    resource: roles
+  - group: rbac.authorization.k8s.io
+    name: catalogd-leader-election-role
+    namespace: openshift-catalogd
+    resource: roles
+  - group: rbac.authorization.k8s.io
+    name: catalogd-metrics-monitor-role
+    namespace: openshift-catalogd
+    resource: roles
+  - group: rbac.authorization.k8s.io
+    name: catalogd-manager-rolebinding
+    namespace: openshift-config
+    resource: rolebindings
+  - group: rbac.authorization.k8s.io
+    name: catalogd-leader-election-rolebinding
+    namespace: openshift-catalogd
+    resource: rolebindings
+  - group: rbac.authorization.k8s.io
+    name: catalogd-manager-rolebinding
+    namespace: openshift-catalogd
+    resource: rolebindings
+  - group: rbac.authorization.k8s.io
+    name: catalogd-metrics-monitor-rolebinding
+    namespace: openshift-catalogd
+    resource: rolebindings
+  - group: ""
+    name: catalogd-service
+    namespace: openshift-catalogd
+    resource: services
+  - group: apps
+    name: catalogd-controller-manager
+    namespace: openshift-catalogd
+    resource: deployments
+  - group: olm.operatorframework.io
+    name: openshift-certified-operators
+    resource: clustercatalogs
+  - group: olm.operatorframework.io
+    name: openshift-community-operators
+    resource: clustercatalogs
+  - group: olm.operatorframework.io
+    name: openshift-redhat-marketplace
+    resource: clustercatalogs
+  - group: olm.operatorframework.io
+    name: openshift-redhat-operators
+    resource: clustercatalogs
+  - group: admissionregistration.k8s.io
+    name: catalogd-mutating-webhook-configuration
+    resource: mutatingwebhookconfigurations
+  - group: monitoring.coreos.com
+    name: catalogd-metrics-monitor
+    namespace: openshift-catalogd
+    resource: servicemonitors
+  - group: ""
+    name: openshift-operator-controller
+    resource: namespaces
+  - group: networking.k8s.io
+    name: operator-controller-default-deny-all-traffic
+    namespace: openshift-operator-controller
+    resource: networkpolicies
+  - group: networking.k8s.io
+    name: operator-controller-controller-manager
+    namespace: openshift-operator-controller
+    resource: networkpolicies
+  - group: ""
+    name: operator-controller-controller-manager
+    namespace: openshift-operator-controller
+    resource: serviceaccounts
+  - group: ""
+    name: operator-controller-trusted-ca-bundle
+    namespace: openshift-operator-controller
+    resource: configmaps
+  - group: apiextensions.k8s.io
+    name: clusterextensions.olm.operatorframework.io
+    resource: customresourcedefinitions
+  - group: rbac.authorization.k8s.io
+    name: operator-controller-metrics-reader
+    resource: clusterroles
+  - group: rbac.authorization.k8s.io
+    name: operator-controller-proxy-role
+    resource: clusterroles
+  - group: rbac.authorization.k8s.io
+    name: operator-controller-clusterextension-viewer-role
+    resource: clusterroles
+  - group: rbac.authorization.k8s.io
+    name: operator-controller-manager-role
+    resource: clusterroles
+  - group: rbac.authorization.k8s.io
+    name: operator-controller-proxy-rolebinding
+    resource: clusterrolebindings
+  - group: rbac.authorization.k8s.io
+    name: operator-controller-manager-rolebinding
+    resource: clusterrolebindings
+  - group: rbac.authorization.k8s.io
+    name: operator-controller-manager-role
+    namespace: openshift-config
+    resource: roles
+  - group: rbac.authorization.k8s.io
+    name: operator-controller-leader-election-role
+    namespace: openshift-operator-controller
+    resource: roles
+  - group: rbac.authorization.k8s.io
+    name: operator-controller-metrics-monitor-role
+    namespace: openshift-operator-controller
+    resource: roles
+  - group: rbac.authorization.k8s.io
+    name: operator-controller-manager-role
+    namespace: openshift-operator-controller
+    resource: roles
+  - group: rbac.authorization.k8s.io
+    name: operator-controller-manager-rolebinding
+    namespace: openshift-config
+    resource: rolebindings
+  - group: rbac.authorization.k8s.io
+    name: operator-controller-leader-election-rolebinding
+    namespace: openshift-operator-controller
+    resource: rolebindings
+  - group: rbac.authorization.k8s.io
+    name: operator-controller-manager-rolebinding
+    namespace: openshift-operator-controller
+    resource: rolebindings
+  - group: rbac.authorization.k8s.io
+    name: operator-controller-metrics-monitor-rolebinding
+    namespace: openshift-operator-controller
+    resource: rolebindings
+  - group: ""
+    name: operator-controller-service
+    namespace: openshift-operator-controller
+    resource: services
+  - group: apps
+    name: operator-controller-controller-manager
+    namespace: openshift-operator-controller
+    resource: deployments
+  - group: monitoring.coreos.com
+    name: operator-controller-metrics-monitor
+    namespace: openshift-operator-controller
+    resource: servicemonitors
+  - group: apiextensions.k8s.io
+    name: olms.operator.openshift.io
+    resource: customresourcedefinitions
+  - group: operator.openshift.io
+    name: cluster
+    resource: olms
+  - group: ""
+    name: openshift-cluster-olm-operator
+    resource: namespaces
+  - group: rbac.authorization.k8s.io
+    name: cluster-olm-operator
+    resource: clusterroles
+  - group: ""
+    name: cluster-olm-operator
+    namespace: openshift-cluster-olm-operator
+    resource: serviceaccounts
+  - group: ""
+    name: cluster-olm-operator-metrics
+    namespace: openshift-cluster-olm-operator
+    resource: services
+  - group: rbac.authorization.k8s.io
+    name: cluster-olm-operator-role
+    resource: clusterrolebindings
+  - group: apps
+    name: cluster-olm-operator
+    namespace: openshift-cluster-olm-operator
+    resource: deployments
+  - group: networking.k8s.io
+    name: default-deny-all
+    namespace: openshift-cluster-olm-operator
+    resource: networkpolicies
+  - group: networking.k8s.io
+    name: allow-egress-to-openshift-dns
+    namespace: openshift-cluster-olm-operator
+    resource: networkpolicies
+  - group: networking.k8s.io
+    name: allow-egress-to-api-server
+    namespace: openshift-cluster-olm-operator
+    resource: networkpolicies
+  - group: networking.k8s.io
+    name: allow-metrics-traffic
+    namespace: openshift-cluster-olm-operator
+    resource: networkpolicies
+  versions:
+  - name: operator
+    version: 4.21.18

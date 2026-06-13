@@ -1,0 +1,69 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: "2024-12-03T19:23:00Z"
+  labels:
+    rbac.authorization.k8s.io/aggregate-to-cluster-reader: "true"
+  managedFields:
+  - apiVersion: rbac.authorization.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          f:rbac.authorization.k8s.io/aggregate-to-cluster-reader: {}
+        f:ownerReferences:
+          k:{"uid":"613484e4-cf55-4df0-af59-2ae11607f117"}: {}
+      f:rules: {}
+    manager: cluster-network-operator/operconfig
+    operation: Apply
+    time: "2026-03-13T11:05:21Z"
+  name: openshift-ovn-kubernetes-cluster-reader
+  ownerReferences:
+  - apiVersion: operator.openshift.io/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Network
+    name: cluster
+    uid: 613484e4-cf55-4df0-af59-2ae11607f117
+  resourceVersion: "7414744847"
+  uid: 3b3806b0-e48c-454c-90e2-a427037b9cc2
+rules:
+- apiGroups:
+  - k8s.ovn.org
+  resources:
+  - egressfirewalls
+  - egressips
+  - egressqoses
+  - egressservices
+  - adminpolicybasedexternalroutes
+  - userdefinednetworks
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - policy.networking.k8s.io
+  resources:
+  - adminnetworkpolicies
+  - baselineadminnetworkpolicies
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - network.operator.openshift.io
+  resources:
+  - egressrouters
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - k8s.cni.cncf.io
+  resources:
+  - network-attachment-definitions
+  verbs:
+  - get
+  - list
+  - watch

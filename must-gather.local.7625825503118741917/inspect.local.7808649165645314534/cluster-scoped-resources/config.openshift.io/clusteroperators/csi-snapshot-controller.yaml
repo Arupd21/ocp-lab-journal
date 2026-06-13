@@ -1,0 +1,158 @@
+---
+apiVersion: config.openshift.io/v1
+kind: ClusterOperator
+metadata:
+  annotations:
+    capability.openshift.io/name: CSISnapshot
+    include.release.openshift.io/hypershift: "true"
+    include.release.openshift.io/ibm-cloud-managed: "true"
+    include.release.openshift.io/self-managed-high-availability: "true"
+    include.release.openshift.io/single-node-developer: "true"
+  creationTimestamp: "2024-12-03T19:19:17Z"
+  generation: 1
+  managedFields:
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:capability.openshift.io/name: {}
+          f:include.release.openshift.io/hypershift: {}
+          f:include.release.openshift.io/ibm-cloud-managed: {}
+          f:include.release.openshift.io/self-managed-high-availability: {}
+          f:include.release.openshift.io/single-node-developer: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"57211e58-241c-464e-8d45-e1c29c5df9c6"}: {}
+      f:spec: {}
+    manager: cluster-version-operator
+    operation: Update
+    time: "2024-12-03T19:19:17Z"
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        .: {}
+        f:extension: {}
+    manager: cluster-version-operator
+    operation: Update
+    subresource: status
+    time: "2024-12-03T19:19:18Z"
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions:
+          .: {}
+          k:{"type":"Available"}:
+            f:message: {}
+          k:{"type":"Degraded"}:
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+          k:{"type":"Progressing"}:
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+        f:relatedObjects: {}
+        f:versions: {}
+    manager: csi-snapshot-controller-operator
+    operation: Update
+    subresource: status
+    time: "2026-06-09T05:31:02Z"
+  name: csi-snapshot-controller
+  ownerReferences:
+  - apiVersion: config.openshift.io/v1
+    controller: true
+    kind: ClusterVersion
+    name: version
+    uid: 57211e58-241c-464e-8d45-e1c29c5df9c6
+  resourceVersion: "7967142343"
+  uid: d9b9272e-16cc-4e01-83b9-adad87895c1e
+spec: {}
+status:
+  conditions:
+  - lastTransitionTime: "2026-04-14T08:48:31Z"
+    message: All is well
+    reason: AsExpected
+    status: "False"
+    type: Degraded
+  - lastTransitionTime: "2026-06-09T05:31:02Z"
+    message: 'CSISnapshotControllerProgressing: Deployment is not progressing'
+    reason: AsExpected
+    status: "False"
+    type: Progressing
+  - lastTransitionTime: "2024-12-03T19:24:07Z"
+    message: 'CSISnapshotControllerAvailable: Deployment is available'
+    reason: AsExpected
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2024-12-03T19:23:52Z"
+    message: All is well
+    reason: AsExpected
+    status: "True"
+    type: Upgradeable
+  - lastTransitionTime: "2024-12-03T19:23:52Z"
+    reason: NoData
+    status: Unknown
+    type: EvaluationConditionsDetected
+  extension: null
+  relatedObjects:
+  - group: ""
+    name: openshift-cluster-storage-operator
+    resource: namespaces
+  - group: operator.openshift.io
+    name: cluster
+    resource: csisnapshotcontrollers
+  - group: ""
+    name: csi-snapshot-controller-operator
+    namespace: openshift-cluster-storage-operator
+    resource: serviceaccounts
+  - group: rbac.authorization.k8s.io
+    name: openshift-csi-snapshot-controller-runner
+    resource: clusterroles
+  - group: rbac.authorization.k8s.io
+    name: csi-snapshot-controller-operator-clusterrole
+    resource: clusterroles
+  - group: rbac.authorization.k8s.io
+    name: system:openshift:aggregate-snapshots-to-admin
+    resource: clusterroles
+  - group: rbac.authorization.k8s.io
+    name: system:openshift:aggregate-snapshots-to-view
+    resource: clusterroles
+  - group: rbac.authorization.k8s.io
+    name: system:openshift:aggregate-snapshots-to-basic-user
+    resource: clusterroles
+  - group: rbac.authorization.k8s.io
+    name: system:openshift:aggregate-snapshots-to-storage-admin
+    resource: clusterroles
+  - group: rbac.authorization.k8s.io
+    name: csi-snapshot-controller-operator-clusterrole
+    resource: clusterrolebindings
+  - group: rbac.authorization.k8s.io
+    name: csi-snapshot-controller-runner-operator
+    resource: clusterrolebindings
+  - group: rbac.authorization.k8s.io
+    name: csi-snapshot-controller-operator-role
+    namespace: openshift-cluster-storage-operator
+    resource: roles
+  - group: rbac.authorization.k8s.io
+    name: csi-snapshot-controller-operator-role
+    namespace: openshift-cluster-storage-operator
+    resource: rolebindings
+  - group: rbac.authorization.k8s.io
+    name: extension-apiserver-authentication-reader
+    namespace: kube-system
+    resource: roles
+  - group: rbac.authorization.k8s.io
+    name: csi-snapshot-controller-operator-authentication-reader
+    namespace: kube-system
+    resource: rolebindings
+  versions:
+  - name: operator
+    version: 4.21.18
+  - name: csi-snapshot-controller
+    version: 4.21.18
